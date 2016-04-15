@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto Slab', serif;
+    padding: 40px;
+    font-size: 14px;
+}
+
+h1 {
+    font-size: 32px;
+    padding: 0 0 0 20px;
+}
+
+h2 {
+    font-size: 18px;
+    padding: 10px 0 0 20px;
+}
+
+input {
+    width: 200px;
+    padding: 5px;
+    outline: none;
+    margin-top: 10px;
+}
+
+.example {
+    margin: 20px;
+}
+
+.example.bordered {
+    padding: 10px;
+    border: 1px solid #d4d4d4;
+    border-radius: 3px;
+}
+
+.example h4 {
+    font-size: 16px;
+    margin: 0 0 10px 0;
+}
+
+.example p {
+    margin: 10px 0;
+}
+
+.footer {
+    width: 200px;
+    text-align: center;
+    margin: 100px auto 100px auto;
+}
+
+a {
+    color: #ff5c5b;
+}
+img.ng-thumb {
+  height: 100px;
+}
+.content {
+  width: 714px;
+  height: 100%;
+  margin: 100px auto 0 auto;
+}
+/* make sidebar nav vertical */
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+  }
+  .sidebar-nav .navbar ul:not {
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+ul {
+    list-style-type: none;
+}
+a {
+    /* color: #ff5c5b; */
+    color: #777;
+}

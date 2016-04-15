@@ -1,0 +1,93 @@
+<!-- ================================================================
+			  HTML Script
+			  Ed Colosky
+			  April, 2016
+================================================================= -->
+<html ng-app="app">
+<head>
+	<title>New LXA THU Website</title>
+
+
+	<link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/github.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="angular-ui-bootstrap/dist/ui-bootstrap-csp.css" />
+	<link rel="stylesheet" type="text/css" href="src/css/ngGallery.css">
+	<link rel="stylesheet" type="text/css" href="src/css/screen.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<!-- Top navbar -->
+<header>
+  <nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">LXA THU Website</a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-left">
+            <li><a href="#"><i class="fa fa-bars"></i> Photo Vault</a></li>
+            <li><a href="#about"><i class="fa fa-bars"></i> About</a></li>
+            <li><a href="#contact"><i class="fa fa-bars"></i> Chapter History</a></li>
+						<li><a href="#contact"><i class="fa fa-bars"></i> Links</a></li>
+        </ul>
+    </div>
+  </nav>
+</header>
+<!-- start of the side bar -->
+<div class="pageWraper" ng-controller="Ctrl as ctrl">
+	<div class="row">
+		<!-- side navbar -->
+	  <div class="col-sm-3">
+			<uib-accordion close-others="false">
+
+				<!-- 2010 gallery -->
+				<uib-accordion-group is-open="status1.open">
+		      <uib-accordion-heading>
+		        2010 Reunion <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status1.open, 'glyphicon-chevron-right': !status1.open}"></i>
+		      </uib-accordion-heading>
+					<ul>
+						<!-- Generate list of links from items in DropDown list -->
+      			<li ng-repeat= "item in DropDown_2010" ><a ng-click="on2010ReunionClick(item)"> {{item}} </a></li>
+					</ul>
+	    	</uib-accordion-group>
+
+				<!-- 2014 gallery -->
+				<uib-accordion-group is-open="status2.open">
+		      <uib-accordion-heading>
+		        2014 Reunion <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status2.open, 'glyphicon-chevron-right': !status2.open}"></i>
+		      </uib-accordion-heading>
+					<ul>
+						<!-- Generate list of links from items in DropDown list -->
+      			<li ng-repeat= "item in DropDown_2014" ><a ng-click="on2014ReunionClick(item)"> {{item}} </a></li>
+					</ul>
+	    	</uib-accordion-group>
+			</uib-accordion>
+		</div>
+
+				    <!-- <li class="active"><a href="#" ng-click = "on2014ReunionClick()">2014 Reunion</a></li>
+				    <li class="uib-dropdown">
+				      <a href="#" class="uib-dropdown-toggle" >2010 Reunion<b class="caret"></b></a>
+				      <ul class="uib-dropdown-menu">
+				        <li ng-repeat= "a in a2010DropDown"><a ng-click="on2010ReuionClick()">{{a}}</a></li>
+				      </ul> -->
+
+
+
+			<div class="col-sm-9">
+				<!-- Main content goes here -->
+			<div>
+				<h1>{{title}}</h1>
+				<ng-gallery images="ctrl.images" thumbs-num="15"></ng-gallery>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+<script type="text/javascript" src="src/js/ngGallery.js"></script>
+<script type="text/javascript" src="angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
