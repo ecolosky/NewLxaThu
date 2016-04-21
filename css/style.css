@@ -90,3 +90,9 @@ a {
     /* color: #ff5c5b; */
     color: #777;
 }
+li.uib-tab.nav-item.ng-scope.ng-isolate-scope {
+margin-top: 5px;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+background-color: rgb(82,35,127);
+}
