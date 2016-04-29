@@ -6,107 +6,19 @@
 			<uib-accordion close-others="true" tooltip-enable = {{ttenable}} tooltip-placement = "top-right" uib-tooltip = "select a gallery to view">
 
 				<!-- Scrapbook gallery -->
-				<uib-accordion-group is-open="statuss.open" >
+				<uib-accordion-group ng-repeat = "item in labels" is-open="status.open" >
 					<uib-accordion-heading>
-						Scrapbook <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': statuss.open, 'glyphicon-chevron-right': !statuss.open}"></i>
+						{{item.header}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
 					</uib-accordion-heading>
 					<ul>
 						<!-- Generate list of links from items in DropDown list -->
-						<li ng-repeat= "item in DropDown_Scrapbook" ><a ng-click="onScrapbookClick(item)"> {{item}} </a></li>
+						<li ng-repeat= "subitem in item.subcats" ><a ng-click="onGalleryClick(subitem, item.header)"> {{subitem.title}} </a></li>
 					</ul>
 				</uib-accordion-group>
-
-				<!-- 2000 gallery -->
-				<uib-accordion-group is-open="status4.open">
-		      <uib-accordion-heading>
-		        2000 Reunion <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status4.open, 'glyphicon-chevron-right': !status3.open}"></i>
-		      </uib-accordion-heading>
-					<ul>
-						<!-- Generate list of links from items in DropDown list -->
-      			<li ng-repeat= "item in DropDown_2000" ><a ng-click="on2000ReunionClick(item)"> {{item}} </a></li>
-					</ul>
-	    	</uib-accordion-group>
-
-				<!-- 2002 gallery -->
-				<uib-accordion-group is-open="status5.open">
-		      <uib-accordion-heading>
-		        2002 Reunion <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status5.open, 'glyphicon-chevron-right': !status5.open}"></i>
-		      </uib-accordion-heading>
-					<ul>
-						<!-- Generate list of links from items in DropDown list -->
-      			<li ng-repeat= "item in DropDown_2002" ><a ng-click="on2002ReunionClick(item)"> {{item}} </a></li>
-					</ul>
-	    	</uib-accordion-group>
-
-				<!-- 2004 gallery -->
-				<uib-accordion-group is-open="status6.open">
-					<uib-accordion-heading>
-						2004 Reunion <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status6.open, 'glyphicon-chevron-right': !status6.open}"></i>
-					</uib-accordion-heading>
-					<ul>
-						<!-- Generate list of links from items in DropDown list -->
-						<li ng-repeat= "item in DropDown_2004" ><a ng-click="on2004ReunionClick(item)"> {{item}} </a></li>
-					</ul>
-				</uib-accordion-group>
-
-				<!-- 2006 gallery -->
-				<uib-accordion-group is-open="status06.open">
-					<uib-accordion-heading>
-						2006 Reunion <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status06.open, 'glyphicon-chevron-right': !status06.open}"></i>
-					</uib-accordion-heading>
-					<ul>
-						<!-- Generate list of links from items in DropDown list -->
-						<li ng-repeat= "item in DropDown_2006" ><a ng-click="on2006ReunionClick(item)"> {{item}} </a></li>
-					</ul>
-				</uib-accordion-group>
-
-				<!-- 2008 gallery -->
-				<uib-accordion-group is-open="status3.open">
-		      <uib-accordion-heading>
-		        2008 Reunion <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status3.open, 'glyphicon-chevron-right': !status3.open}"></i>
-		      </uib-accordion-heading>
-					<ul>
-						<!-- Generate list of links from items in DropDown list -->
-      			<li ng-repeat= "item in DropDown_2008" ><a ng-click="on2008ReunionClick(item)"> {{item}} </a></li>
-					</ul>
-	    	</uib-accordion-group>
-
-				<!-- 2010 gallery -->
-				<uib-accordion-group is-open="status1.open">
-		      <uib-accordion-heading>
-		        2010 Reunion <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status1.open, 'glyphicon-chevron-right': !status1.open}"></i>
-		      </uib-accordion-heading>
-					<ul>
-						<!-- Generate list of links from items in DropDown list -->
-      			<li ng-repeat= "item in DropDown_2010" ><a ng-click="on2010ReunionClick(item)"> {{item}} </a></li>
-					</ul>
-	    	</uib-accordion-group>
-
-				<!-- 2012 gallery -->
-				<uib-accordion-group is-open="status12.open">
-		      <uib-accordion-heading>
-		        2012 Reunion <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status12.open, 'glyphicon-chevron-right': !status12.open}"></i>
-		      </uib-accordion-heading>
-					<ul>
-						<!-- Generate list of links from items in DropDown list -->
-      			<li ng-repeat= "item in DropDown_2012" ><a ng-click="on2012ReunionClick(item)"> {{item}} </a></li>
-					</ul>
-	    	</uib-accordion-group>
-
-				<!-- 2014 gallery -->
-				<uib-accordion-group is-open="status2.open">
-		      <uib-accordion-heading>
-		        2014 Reunion <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status2.open, 'glyphicon-chevron-right': !status2.open}"></i>
-		      </uib-accordion-heading>
-					<ul>
-						<!-- Generate list of links from items in DropDown list -->
-      			<li ng-repeat= "item in DropDown_2014" ><a ng-click="on2014ReunionClick(item)"> {{item}} </a></li>
-					</ul>
-	    	</uib-accordion-group>
 			</uib-accordion>
 		</div>
-			<div class="col-sm-9">
-				<!-- Main content goes here -->
+		<div class="col-sm-9">
+			<!-- Main content goes here -->
 			<div>
 				<h1>{{title}}</h1>
 				<ng-gallery images="ctrl.images" thumbs-num="15"></ng-gallery>
