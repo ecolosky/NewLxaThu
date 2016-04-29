@@ -1,0 +1,38 @@
+<!-- ================================================================
+			  HTML Script - Us Today page
+			  Ed Colosky
+			  April, 2016
+================================================================= -->
+<style media="screen">
+  img {
+    width: 30vw;
+  }
+  p.ng-binding {
+    padding-top: 200px;
+  }
+  .row{
+    padding-top: 20px;
+  }
+</style>
+
+<div class="pageWrapper">
+  <center> <h1>Us Today<br>What We're Doing, How We're Holding Up</h1></center>
+  <p><b>Watch this space for pictures. Send in pictures, stories, milestones, etc.</b>
+  <p>This section has been reorganized so that newer pictures appear at the top. (Saves you time waiting for the pictures to appear, since downloads can be slow.)</font>
+  <p><p><p>
+  <div ng-repeat = "item in usToday" class="row">
+    <div class="col-md-6">
+      <img src="{{item.img}}" />
+    </div>
+    <div class="col-md-6">
+      <p>
+        {{item.description}}
+      </p>
+      <ul ng-repeat = "lisItem in item.list">
+        <li>{{lisItem}}</li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>

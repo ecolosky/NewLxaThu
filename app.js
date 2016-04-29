@@ -30,9 +30,13 @@ var app = angular.module('app', ['jkuri.gallery','ui.bootstrap','ngRoute','ngAni
             .when('/ChapterHistory', {
                 templateUrl : 'pages/ChapterHistory/index.html'
             })
-            // route for the stories page
+            // route for the links page
             .when('/links', {
                 templateUrl : 'pages/links.html'
+            })
+            // route for the UsToday page
+            .when('/UsToday', {
+                templateUrl : 'pages/usToday.html'
             });
     });
 
@@ -43,19 +47,41 @@ app.controller('mainCtrl',function($scope){
     { title:"Photo Vault", href:"#/gallery" },
     { title:"Stories", href:"#/stories" },
     { title:"Chapter History", href:"#/ChapterHistory" },
+    { title:"Us Today", href:"#/UsToday"},
     { title:"Links", href:"#/links" }
+
   ];
   $scope.init = function () {
     $scope.labels = [];
     console.log("init() function")
+    //pull SidebarLabels.json into the photo gallery
     $.getJSON("SidebarLabels.json", function(data){
           // I have placed alert here previously and realized it doesn't go into here
           console.log(data);
           $scope.labels = data
       })
       .fail(function() {
-          console.log( "error" );
+          console.log( "error pulling SidebarLabels" );
         });
+    //pull Announcement.json into the photo gallery
+    $.getJSON("Announcement.json", function(data){
+        // I have placed alert here previously and realized it doesn't go into here
+        console.log(data);
+        $scope.annc = data
+    })
+    .fail(function() {
+        console.log( "error pulling Announcement" );
+      });
+    //pull UsToday.json into the photo gallery
+    $.getJSON("UsToday.json", function(data){
+        // I have placed alert here previously and realized it doesn't go into here
+        console.log(data);
+        $scope.usToday = data
+    })
+    .fail(function() {
+        console.log( "error pulling Us Today" );
+      });
+
     };
   $scope.changeTab = function(data) {
     window.location.hash = data;
