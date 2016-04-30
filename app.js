@@ -43,12 +43,12 @@ var app = angular.module('app', ['jkuri.gallery','ui.bootstrap','ngRoute','ngAni
 app.controller('mainCtrl',function($scope){
   $scope.message = "home controller is active";
   $scope.tabs = [
-    { title:"Home", href:"#/" },
-    { title:"Photo Vault", href:"#/gallery" },
-    { title:"Stories", href:"#/stories" },
-    { title:"Chapter History", href:"#/ChapterHistory" },
-    { title:"Us Today", href:"#/UsToday"},
-    { title:"Links", href:"#/links" }
+    { title:"Home", href:"#/", icon: "glyphicon glyphicon-home"},
+    { title:"Photo Vault", href:"#/gallery", icon: "glyphicon glyphicon-picture" },
+    { title:"Stories", href:"#/stories", icon: "glyphicon glyphicon-book" },
+    { title:"Chapter History", href:"#/ChapterHistory", icon: "glyphicon glyphicon-hourglass" },
+    { title:"Us Today", href:"#/UsToday", icon: "glyphicon glyphicon-map-marker"},
+    { title:"Links", href:"#/links", icon: "glyphicon glyphicon-menu-hamburger" }
 
   ];
   $scope.init = function () {
@@ -81,7 +81,6 @@ app.controller('mainCtrl',function($scope){
     .fail(function() {
         console.log( "error pulling Us Today" );
       });
-
     };
   $scope.changeTab = function(data) {
     window.location.hash = data;
@@ -115,32 +114,7 @@ app.controller('galleryCtrl', function($scope, $document) {
   $scope.ttenable = "true";
 
   self.images= [];
-
-  console.log($scope.index);
-  // $scope.titles = [{
-  //   title: '2000',
-  //   children: [{
-  //     name: 'Bob Hosken Photos',
-  //     funct: 'on2000ReunionClick("Bob Hosken Photos")'},
-  //     {name: 'Don Hayes Photos',
-  //     funct: '"on2000ReunionClick({{child.name}})"'}]
-  // }];
-
-
-  // list of reunion years
-  // $scope.years = ['2000','2002','2004','2008','2010','2014']
-  // dropdown lists
-  //
-  // $scope.DropDown_2000 = ['Bob Hosken Photos','Don Hayes Photos','Guys and Gals','Herb and Pam Blomquist Photos','John Trani Photos','Sabatinos','The Cruise'];
-  // $scope.DropDown_2002 = ['Don Hayes Photos','Herb and Pam Photos','Joe Curtis Photos','John Presper Photos'];
-  // $scope.DropDown_2004 = ['Andy Anderson Photos','Bob Hosken Photos','Bob Schwab Photos','Charlie Opalek Photos','Don Hayes Photos','Ed Johnston Photos','Herb and Pam Blomquist Photos','John Presper Photos','Rich Pensebene Photos','Roger Grice Photos'];
-  // $scope.DropDown_2006 = ['Charlie Opalek Photos','Don Hayes Photos','Ed Johnston Photos','Group Photo','Happy Birthday Joe','John Presper Photos','Larry Pepe photos','Roger Grice  Photos','Vinny Morabit Photos','Vinny Vintage Photos'];
-  // $scope.DropDown_2008 = ['Don Hayes Photos','Ed Johnston Photos','Ed Waldbusser Photos','Group Photos','Joe and Barbara Curtiss','Roger Grice Photos','Tom McNicholas Photos'];
-  // $scope.DropDown_2010 = ['Andy and Kathy photos','Charlie and Mary photos','Ed and Madeline photos'];
-  // $scope.DropDown_2012 = ['Charlie and Mary photos','Joe and Barbara photos','Napa Flash Mob photos','Roger and Teri photos'];
-  // $scope.DropDown_2014 = ['Roger and Teri photos'];
-  // $scope.DropDown_Scrapbook = ['1956','1957','1958','1959','1960','1960-1964','1961','1962','1963','1964','1965','1966','1968','Dean Mittendorf','General Assembly 2000','Mortgage Burning 1973','Negatives Found at The House','Order of Merit Grice','Order of Merit Hayes','Post 1964','Pre 1960','Roger Visit to Brooklyn in 2001','Sky Diving','The Polywog 63 and 64'];
-  //
+  
   $scope.onGalleryClick = function(subitem, titleStr){
     self.images = subitem.images;
     $scope.title = titleStr + ' - ' + subitem.title;
