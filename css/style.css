@@ -62,6 +62,9 @@ img.ng-thumb {
   height: 100%;
   margin: 100px auto 0 auto;
 }
+i.glyphicon {
+padding-right: .5em;
+}
 /* make sidebar nav vertical */
 @media (min-width: 768px) {
   .sidebar-nav .navbar .navbar-collapse {
