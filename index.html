@@ -5,6 +5,7 @@
 ================================================================= -->
 <html ng-app="app">
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>&#923;&#935;&#913; &#920;&#933;</title>
 		<!-- favicon code -->
 		<link rel="icon" href="img/favicon/favicon.ico">
@@ -40,23 +41,51 @@
 		<!-- Top navbar -->
 		<header>
 		  <nav class="navbar navbar-default">
+				<div class="navbar-header">
+					<a class="navbar-brand" >&#923;&#935;&#913; &#920;&#933;</a>
+				</div>
 		    <div class="container-navbar">
-		        <div class="navbar-header">
-							<ul>
-		            <li><a class="navbar-brand" href="#/">&#923;&#935;&#913; &#920;&#933;</a></li>
-							</ul>
-						</div>
-						<uib-tabset active="activePill" vertical="false" type="pills">
+					<uib-tabset active="activePill" vertical=false type="pills">
 							<uib-tab ng-repeat="tab in tabs"	active="tab.active" select="changeTab(tab.href)">
 									<uib-tab-heading>
 										<i class = "{{tab.icon}}"></i> {{tab.title}}
 									</uib-tab-heading>
 							</uib-tab>
-
-					  </uib-tabset>
-
+				  </uib-tabset>
 		    </div>
 		  </nav>
+			<!-- <nav class="navbar navbar-inverse navbar-fixed-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" ng-click = "navSelect()" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <div class="navbar-brand" href="#">
+	            <span class="glyphicon glyphicon-console" aria-hidden="true"></span>
+	            <span class="glyphicon-class">Edward Colosky's Page</span>
+	          </div>
+	        </div>
+	        <div id="navbar" class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav">
+	            <li class="active"><a id="home">
+	              <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+	              <span class="tab">Home</span>
+	            </a></li>
+	            <li><a id ="about">
+	              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+	              <span class="tab">About Me</span>
+	            </a></li>
+	            <li><a id="contact">
+	              <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+	              <span class="tab">Contact Me</span>
+	            </a></li>
+	          </ul>
+	        </div>
+	      </div>
+	    </nav> -->
 		</header>
 		<!-- site wraper -->
 		<div id="main">

@@ -42,15 +42,27 @@ var app = angular.module('app', ['jkuri.gallery','ui.bootstrap','ngRoute','ngAni
 
 app.controller('mainCtrl',function($scope){
   $scope.message = "home controller is active";
+  $scope.verticalNav = "false";
   $scope.tabs = [
     { title:"Home", href:"#/", icon: "glyphicon glyphicon-home"},
     { title:"Photo Vault", href:"#/gallery", icon: "glyphicon glyphicon-picture" },
-    { title:"Stories", href:"#/stories", icon: "glyphicon glyphicon-book" },
+    { title:"The Stories", href:"#/stories", icon: "glyphicon glyphicon-book" },
     { title:"Chapter History", href:"#/ChapterHistory", icon: "glyphicon glyphicon-hourglass" },
     { title:"Us Today", href:"#/UsToday", icon: "glyphicon glyphicon-map-marker"},
     { title:"Links", href:"#/links", icon: "glyphicon glyphicon-menu-hamburger" }
 
   ];
+
+  // $scope.$watch(function(){
+  //   return window.innerWidth;
+  // }, function(value) {
+  //   if(value < 900){
+  //     console.log(value);
+  //     alert("under 900");
+  //     $scope.verticalNav = true
+  //   }
+  // });
+
   $scope.init = function () {
     $scope.labels = [];
     console.log("init() function")
@@ -114,7 +126,7 @@ app.controller('galleryCtrl', function($scope, $document) {
   $scope.ttenable = "true";
 
   self.images= [];
-  
+
   $scope.onGalleryClick = function(subitem, titleStr){
     self.images = subitem.images;
     $scope.title = titleStr + ' - ' + subitem.title;
