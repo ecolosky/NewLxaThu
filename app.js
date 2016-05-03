@@ -131,6 +131,8 @@ app.controller('galleryCtrl', function($scope, $document) {
   $scope.onGalleryClick = function(subitem, titleStr){
     self.images = subitem.images;
     $scope.title = titleStr + ' - ' + subitem.title;
+    $scope.ttenable = "false";
   };
+
 
 });

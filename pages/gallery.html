@@ -12,7 +12,7 @@
 					</uib-accordion-heading>
 					<ul>
 						<!-- Generate list of links from items in DropDown list -->
-						<li ng-repeat= "subitem in item.subcats" ><a ng-click="onGalleryClick(subitem, item.header)"> {{subitem.title}} </a></li>
+						<li ng-repeat= "subitem in item.subcats" ><a ng-click="onGalleryClick(subitem, item.header)"> <i class="glyphicon glyphicon-th"></i> {{subitem.title}} </a></li>
 					</ul>
 				</uib-accordion-group>
 			</uib-accordion>
