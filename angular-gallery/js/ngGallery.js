@@ -10,7 +10,8 @@
         var defaults = {
             baseClass: 'ng-gallery',
             thumbClass: 'ng-thumb',
-            templateUrl: 'ng-gallery.html'
+            templateUrl: 'ng-gallery.html',
+
         };
 
         var keys_codes = {
@@ -24,6 +25,7 @@
             scope.baseClass = scope.class || defaults.baseClass;
             scope.thumbClass = scope.thumbClass || defaults.thumbClass;
             scope.thumbsNum = scope.thumbsNum || 3; // should be odd
+            scope.ttImageEnable = true
         }
 
         var template_url = defaults.templateUrl;
@@ -31,7 +33,7 @@
         $templateCache.put(template_url,
             '<div class="{{ baseClass }}">' +
             '  <div ng-repeat="i in images">' +
-            '    <img ng-src="{{ i.thumb }}" class="{{ thumbClass }}" ng-click="openGallery($index)" alt="Image {{ $index + 1 }}" />' +
+            '    <img ng-src="{{ i.thumb }}" class="{{ thumbClass }}" ng-click="openGallery($index)" alt="Image {{ $index + 1 }}" tooltip-enable = {{ttImageEnable}} tooltip-placement = "bottom" uib-tooltip = "click images to enlarge them"/>' +
             '  </div>' +
             '</div>' +
             '<div class="ng-overlay" ng-show="opened">' +
@@ -156,6 +158,7 @@
                         showImage(scope.index);
                     }
                     scope.opened = true;
+                    scope.ttImageEnable = false;
 
                     $timeout(function () {
                         var calculatedWidth = calculateThumbsWidth();

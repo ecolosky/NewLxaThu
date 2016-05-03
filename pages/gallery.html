@@ -3,16 +3,18 @@
 	<div class="row">
 		<!-- side navbar -->
 	  <div class="col-sm-3">
-			<uib-accordion close-others="true" tooltip-enable = {{ttenable}} tooltip-placement = "top-right" uib-tooltip = "select a gallery to view">
+			<uib-accordion close-others="true" tooltip-enable = {{ttGalleryEnable}} tooltip-placement = "top-right" uib-tooltip = "select headings to open them">
 
 				<!-- Scrapbook gallery -->
-				<uib-accordion-group ng-repeat = "item in labels" is-open="status.open" >
+				<uib-accordion-group ng-repeat = "item in labels" is-open="status.open"  >
 					<uib-accordion-heading>
-						{{item.header}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+						{{item.header}} <i class="pull-right glyphicon"  ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
 					</uib-accordion-heading>
 					<ul>
 						<!-- Generate list of links from items in DropDown list -->
-						<li ng-repeat= "subitem in item.subcats" ><a ng-click="onGalleryClick(subitem, item.header)"> <i class="glyphicon glyphicon-th"></i> {{subitem.title}} </a></li>
+						<li ng-repeat= "subitem in item.subcats" ><a ng-click="onGalleryClick(subitem, item.header)"
+							tooltip-enable = {{ttGalleryEnable}} tooltip-placement = "right" uib-tooltip = "select a gallery to view">
+							<i class="glyphicon glyphicon-th"></i> {{subitem.title}} </a></li>
 					</ul>
 				</uib-accordion-group>
 			</uib-accordion>

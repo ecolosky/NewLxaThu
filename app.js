@@ -123,15 +123,20 @@ app.controller('galleryCtrl', function($scope, $document) {
   var self = this;
   $scope.status = "";
   $scope.title = "";
-  $scope.ttenable = "true";
-  $scope.ttcatenable = "true";
+  $scope.ttTabEnable = "true";
+  $scope.ttGalleryEnable = "true";
+  $scope.ttImageEnable = "true";
 
   self.images= [];
+  $scope.disableTT = function(TT){
+    TT = false;
+    alert("diable tt fired");
+  };
 
   $scope.onGalleryClick = function(subitem, titleStr){
     self.images = subitem.images;
     $scope.title = titleStr + ' - ' + subitem.title;
-    $scope.ttenable = "false";
+    $scope.ttGalleryEnable = false;
   };
 
 
