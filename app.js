@@ -75,6 +75,7 @@ app.controller('galleryCtrl', function($scope, $document) {
   $scope.status = "";
   $scope.title = "";
   $scope.ttenable = "true";
+  $scope.ttcatenable = "true";
 
   self.images= [];
 
