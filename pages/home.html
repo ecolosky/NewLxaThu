@@ -8,27 +8,42 @@
     -o-background-size: cover;
     background-size: cover;
   }
-  .container p {
+  p {
     color:white;
     font-size:120%;
+    /*padding-left: 4vw;
+    padding-right: 4vw;*/
   }
+  .row {
+min-height: 40vh;
+padding-left: 2vw;
+padding-right: 2vw;
+}
 </style>
 
 
 
 <div class="pageWraper">
   <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron" style="background-color:rgba(1,106,58,0.5);margin-bottom:0px;">
-    <div class="container">
-      <h1 style="color:white;">ΛΧΑ ϴΥ</h1>
-      <p >Here is a collection from our distant past and more recent past. It started out as a collection of photos from the mid-50s to the mid-60s. They were in the house scrapbooks, which wound up underwater during a basement flood at 36 Sidney Place.The photos have been recovered as best they could be and have been scanned electronically for this web site.</p>
-      <!-- <p><a class="btn btn-primary btn-lg" style="background-color:rgb(82,35,127);" href="#/gallery" role="button">Go to the archive &raquo;</a></p> -->
+  <div class="row" style="background-color:rgba(1,106,58,0.5);margin-bottom:0px;">
+    <div class="col-sm-6">
+        <h1 style="color:white;padding-left:2vw;">Welcome!</h1>
+        <p >Here is a collection from our distant past and more recent past. It started out as a collection of photos from the mid-50s to the mid-60s. They were in the house scrapbooks, which wound up underwater during a basement flood at 36 Sidney Place.The photos have been recovered as best they could be and have been scanned electronically for this web site.</p>
+        <!-- <p><a class="btn btn-primary btn-lg" style="background-color:rgb(82,35,127);" href="#/gallery" role="button">Go to the archive &raquo;</a></p> -->
+
+    </div>
+    <div class="col-sm-6">
+      <h1 style="color:white;">Announcements - {{annc.lastUpdate}}</h1>
+      <p>
+        {{annc.content}}
+      </p>
     </div>
   </div>
 
-  <div class="jumbotron" style="background-color:rgba(212,160,55,0.5);margin-bottom:0px;">
+
+  <div class="row" style="background-color:rgba(212,160,55,0.5);margin-bottom:0px;">
+    <h1 style="color:white;padding-left: 13vw;">The Archive</h1>
     <div class="container" style="p {color:white;}">
-        <h2 style="color:white;">The Archive</h2>
         <p>If you were at Reunion 2000 in Baltimore, you may have seen these photos--they were the ones in the FedEx box. They are collected here and sorted in a somewhat orderly way, but the sort was not perfect--some photos are obviously listed under the wrong year. (That's the nature of scrapbooks.)</p>
 
         <p>Years 1956-1968 are arranged by the dates printed on some of the photos. Three dated sections are a rough sort of the photos with no dates. They're grouped as Before 1960," "1960-1964," and "after 1964." The reasoning here is that I was around in 1960-1964, so photos that looked familiar went in that pile. Other photos were grouped according to whether they seemed older or newer than my time at 36 Sidney Place.</p>
@@ -38,7 +53,7 @@
         <p>The collection has grown over time to include additional years, photos, videos, and sound recordings from reunions, and other pieces of nostalgia. Please send in any additional information you may have. </p>
       </div>
   </div>
-  <div class="jumbotron" style="background-color:rgba(82,35,127,0.5);margin-bottom:0px;height:200px;">
+  <div class="row" style="background-color:rgba(82,35,127,0.5);margin-bottom:0px;height:200px;">
   </div>
   <!-- /container -->
 </div>

@@ -1,11 +1,31 @@
 <!-- ================================================================
-			  HTML Script
+			  HTML Script - index page for lxa thu
 			  Ed Colosky
 			  April, 2016
 ================================================================= -->
 <html ng-app="app">
 	<head>
-		<title>New LXA THU Website</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>&#923;&#935;&#913; &#920;&#933;</title>
+		<!-- favicon code -->
+		<link rel="icon" href="img/favicon/favicon.ico">
+		<link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="img/favicon/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+		<link rel="manifest" href="img/favicon/manifest.json">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
 
 
 		<link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet" type="text/css">
@@ -13,27 +33,59 @@
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="angular-ui-bootstrap/dist/ui-bootstrap-csp.css" />
-		<link rel="stylesheet" type="text/css" href="src/css/ngGallery.css">
-		<link rel="stylesheet" type="text/css" href="src/css/screen.css">
+		<link rel="stylesheet" type="text/css" href="angular-gallery/css/ngGallery.css">
+		<link rel="stylesheet" type="text/css" href="angular-gallery/css/screen.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
-	<body ng-controller = "mainCtrl">
+	<body ng-controller = "mainCtrl" data-ng-init="init()">
 		<!-- Top navbar -->
 		<header>
 		  <nav class="navbar navbar-default">
-		    <div class="container">
-		        <div class="navbar-header">
-							<ul>
-		            <li><a class="navbar-brand" href="#/">LXA THU Website</a></li>
-							</ul>
-						</div>
-						<uib-tabset active="activePill" vertical="false" type="pills">
-							<uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}"
-        					active="tab.active" select="changeTab(tab.href)" />
-					  </uib-tabset>
-
+				<div class="navbar-header">
+					<a class="navbar-brand" >&#923;&#935;&#913; &#920;&#933;</a>
+				</div>
+		    <div class="container-navbar">
+					<uib-tabset active="activePill" vertical=false type="pills">
+							<uib-tab ng-repeat="tab in tabs"	active="tab.active" select="changeTab(tab.href)">
+									<uib-tab-heading>
+										<i class = "{{tab.icon}}"></i> {{tab.title}}
+									</uib-tab-heading>
+							</uib-tab>
+				  </uib-tabset>
 		    </div>
 		  </nav>
+			<!-- <nav class="navbar navbar-inverse navbar-fixed-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" ng-click = "navSelect()" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <div class="navbar-brand" href="#">
+	            <span class="glyphicon glyphicon-console" aria-hidden="true"></span>
+	            <span class="glyphicon-class">Edward Colosky's Page</span>
+	          </div>
+	        </div>
+	        <div id="navbar" class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav">
+	            <li class="active"><a id="home">
+	              <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+	              <span class="tab">Home</span>
+	            </a></li>
+	            <li><a id ="about">
+	              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+	              <span class="tab">About Me</span>
+	            </a></li>
+	            <li><a id="contact">
+	              <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+	              <span class="tab">Contact Me</span>
+	            </a></li>
+	          </ul>
+	        </div>
+	      </div>
+	    </nav> -->
 		</header>
 		<!-- site wraper -->
 		<div id="main">
@@ -42,10 +94,11 @@
 			<div ng-view></div>
 
 		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
 		<script type="text/javascript" src = "angular-route/angular-route.min.js"></script>
 		<script type="text/javascript" src = "angular-animate/angular-animate.min.js"></script>
-		<script type="text/javascript" src="src/js/ngGallery.js"></script>
+		<script type="text/javascript" src="angular-gallery/js/ngGallery.js"></script>
 		<script type="text/javascript" src="angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
 		<script type="text/javascript" src="app.js"></script>
 	</body>
