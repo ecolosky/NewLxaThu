@@ -20,6 +20,10 @@ var app = angular.module('app', ['jkuri.gallery','ui.bootstrap','ngRoute','ngAni
                 templateUrl : 'pages/gallery.html',
                 controller  : 'galleryCtrl'
             })
+            // route for the videos page
+            .when('/videos', {
+                templateUrl : 'pages/videos.html'
+            })
 
             // route for the stories page
             .when('/stories', {
@@ -46,9 +50,11 @@ app.controller('mainCtrl',function($scope){
   $scope.tabs = [
     { title:"Home", href:"#/", icon: "glyphicon glyphicon-home"},
     { title:"Photo Vault", href:"#/gallery", icon: "glyphicon glyphicon-picture" },
+    { title:"Videos", href:"#/videos", icon: "glyphicon glyphicon-facetime-video"},
     { title:"The Stories", href:"#/stories", icon: "glyphicon glyphicon-book" },
     { title:"Chapter History", href:"#/ChapterHistory", icon: "glyphicon glyphicon-hourglass" },
     { title:"Us Today", href:"#/UsToday", icon: "glyphicon glyphicon-map-marker"},
+
     { title:"Links", href:"#/links", icon: "glyphicon glyphicon-menu-hamburger" }
 
   ];
