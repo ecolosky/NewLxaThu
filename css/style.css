@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+.playerWrap {
+    text-align: center;
+}
 
 body {
     font-family: 'Roboto Slab', serif;

@@ -5,30 +5,61 @@
 ================================================================= -->
 <!-- video page -->
 <div class="pageWraper">
-	<div class="row">
-    <h3>2014 Reunion</h3>
-		<!-- left side -->
-	  <div class="col-md-4">
-      <video width="400" height="300" controls>
-        <source src="video/2014_022.mp4" type="video/mp4">
-        <!-- <source src="movie.ogg" type="video/ogg"> -->
-      Your browser does not support the video tag.
-      </video>
+    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+		<div class="playerWrap">
+
+
+		<h3 >Reunion Videos</h3>
+		<p>
+			Select other videos from the past reunions by clicking the top left button in the player.
+		</p>
+    <div id="player" tooltip-enable = "true" tooltip-placement = "top" uib-tooltip = "select other videos from here"></div>
+
+    <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '563',
+          width: '1000',
+					playerVars:
+          {
+            listType:'playlist',
+            list: 'PL5A9tcwaN5RUHmyBfHPcSrq-Lc26n-myL'
+          },
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          // setTimeout(stopVideo, 6000);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
+    </script>
 		</div>
-    <div class="col-md-4">
-      <video width="400" height="300" controls>
-        <source src="video/2014_040.mp4" type="video/mp4">
-        <!-- <source src="movie.ogg" type="video/ogg"> -->
-      Your browser does not support the video tag.
-      </video>
-		</div>
-    <!-- Right side -->
-		<div class="col-md-4">
-      <video width="400" height="300" controls>
-        <source src="video/2014_063.mp4" type="video/mp4">
-        <!-- <source src="movie.ogg" type="video/ogg"> -->
-      Your browser does not support the video tag.
-      </video>
-		</div>
-	</div>
 </div>
