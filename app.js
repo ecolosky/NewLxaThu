@@ -45,29 +45,23 @@ var app = angular.module('app', ['jkuri.gallery','ui.bootstrap','ngRoute','ngAni
     });
 
 app.controller('mainCtrl',function($scope){
+  $scope.isCollapsed = true;
   $scope.message = "home controller is active";
-  $scope.verticalNav = "false";
+  // $scope.verticalNav = "false";
   $scope.tabs = [
-    { title:"Home", href:"#/", icon: "glyphicon glyphicon-home"},
-    { title:"Photo Vault", href:"#/gallery", icon: "glyphicon glyphicon-picture" },
-    { title:"Videos", href:"#/videos", icon: "glyphicon glyphicon-facetime-video"},
-    { title:"The Stories", href:"#/stories", icon: "glyphicon glyphicon-book" },
-    { title:"Chapter History", href:"#/ChapterHistory", icon: "glyphicon glyphicon-hourglass" },
+    { title:"Home", href:"/", icon: "glyphicon glyphicon-home"},
+    { title:"Photo Vault", href:"/gallery", icon: "glyphicon glyphicon-picture" },
+    { title:"Videos", href:"/videos", icon: "glyphicon glyphicon-facetime-video"},
+    { title:"The Stories", href:"/stories", icon: "glyphicon glyphicon-book" },
+    { title:"Chapter History", href:"/ChapterHistory", icon: "glyphicon glyphicon-hourglass" },
     { title:"Us Today", href:"#/UsToday", icon: "glyphicon glyphicon-map-marker"},
 
-    { title:"Links", href:"#/links", icon: "glyphicon glyphicon-menu-hamburger" }
+    { title:"Links", href:"/links", icon: "glyphicon glyphicon-menu-hamburger" }
 
   ];
 
-  // $scope.$watch(function(){
-  //   return window.innerWidth;
-  // }, function(value) {
-  //   if(value < 900){
-  //     console.log(value);
-  //     alert("under 900");
-  //     $scope.verticalNav = true
-  //   }
-  // });
+    $scope.navCollapsed = true;
+
 
   $scope.init = function () {
     $scope.labels = [];
@@ -101,7 +95,9 @@ app.controller('mainCtrl',function($scope){
       });
     };
   $scope.changeTab = function(data) {
+
     window.location.hash = data;
+    $scope.navCollapsed = true;
   };
 });
 

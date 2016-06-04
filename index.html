@@ -38,57 +38,35 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body ng-controller = "mainCtrl" data-ng-init="init()">
-		<!-- Top navbar -->
-		<header>
-		  <nav class="navbar navbar-default">
-				<div class="navbar-header">
-					<a class="navbar-brand" >&#923;&#935;&#913; &#920;&#933;</a>
-				</div>
-		    <div class="container-navbar">
-					<uib-tabset active="activePill" vertical=false type="pills">
-							<uib-tab ng-repeat="tab in tabs"	active="tab.active" select="changeTab(tab.href)">
-									<uib-tab-heading>
-										<i class = "{{tab.icon}}"></i> {{tab.title}}
-									</uib-tab-heading>
-							</uib-tab>
-				  </uib-tabset>
-		    </div>
-		  </nav>
-			<!-- <nav class="navbar navbar-inverse navbar-fixed-top">
-	      <div class="container">
-	        <div class="navbar-header">
-	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" ng-click = "navSelect()" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-	            <span class="sr-only">Toggle navigation</span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	          </button>
-	          <div class="navbar-brand" href="#">
-	            <span class="glyphicon glyphicon-console" aria-hidden="true"></span>
-	            <span class="glyphicon-class">Edward Colosky's Page</span>
-	          </div>
-	        </div>
-	        <div id="navbar" class="navbar-collapse collapse">
-	          <ul class="nav navbar-nav">
-	            <li class="active"><a id="home">
-	              <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-	              <span class="tab">Home</span>
-	            </a></li>
-	            <li><a id ="about">
-	              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-	              <span class="tab">About Me</span>
-	            </a></li>
-	            <li><a id="contact">
-	              <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
-	              <span class="tab">Contact Me</span>
-	            </a></li>
-	          </ul>
-	        </div>
-	      </div>
-	    </nav> -->
-		</header>
+			<nav class="navbar navbar-default" role="navigation">
+         <div class="navbar-header">
+					 <a class="navbar-brand" >&#923;&#935;&#913; &#920;&#933;</a>
+           <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+		        </button>
+					</div>
+
+					<div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+						<!-- <ul class="nav navbar-nav"> -->
+							<uib-tabset class="nav navbar-nav" active="activePill" vertical=false type="pills">
+									<uib-tab ng-repeat="tab in tabs"	active="tab.active" select="changeTab(tab.href)">
+											<uib-tab-heading>
+												<i class = "{{tab.icon}}"></i> {{tab.title}}
+											</uib-tab-heading>
+									</uib-tab>
+						  </uib-tabset>
+						<!-- </ul> -->
+					</div>
+				</nav>
+
+
+
 		<!-- site wraper -->
-		<div id="main">
+		<div id="main" ng-click="navCollapsed = true">
 
 			<!-- where angular will inject code -->
 			<div ng-view></div>
