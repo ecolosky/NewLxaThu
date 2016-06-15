@@ -54,7 +54,7 @@ app.controller('mainCtrl',function($scope){
     { title:"Videos", href:"/videos", icon: "glyphicon glyphicon-facetime-video"},
     { title:"The Stories", href:"/stories", icon: "glyphicon glyphicon-book" },
     { title:"Chapter History", href:"/ChapterHistory", icon: "glyphicon glyphicon-hourglass" },
-    { title:"Us Today", href:"#/UsToday", icon: "glyphicon glyphicon-map-marker"},
+    { title:"Us Today", href:"/UsToday", icon: "glyphicon glyphicon-map-marker"},
 
     { title:"Links", href:"/links", icon: "glyphicon glyphicon-menu-hamburger" }
 

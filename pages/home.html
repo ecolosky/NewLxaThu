@@ -34,8 +34,8 @@ padding-right: 2vw;
     </div>
     <div class="col-md-5">
       <h1 style="color:white;">Announcements - {{annc.lastUpdate}}</h1>
-      <p>
-        {{annc .content}}
+      <p ng-repeat="paragraph in annc.content">
+        {{paragraph}}
       </p>
     </div>
   </div>
